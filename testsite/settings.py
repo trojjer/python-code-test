@@ -128,3 +128,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Remote SWAPI URI
+STARSHIP_URI = 'https://swapi.co/api/starships/'
