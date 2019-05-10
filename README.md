@@ -1,4 +1,4 @@
-# Python Code Test
+# Shiptrader
 
 A platform on which users can buy and sell Starships.
 Technical information about the Starships on sale from the [Starship
