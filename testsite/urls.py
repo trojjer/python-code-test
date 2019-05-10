@@ -6,10 +6,12 @@ from django.contrib import admin
 from rest_framework_swagger.views import get_swagger_view
 from rest_framework.routers import DefaultRouter
 
-from shiptrader.views import StarshipViewSet
+from shiptrader.views import StarshipViewSet, ListingViewSet
+
 
 router = DefaultRouter()
 router.register(r'starships', StarshipViewSet, basename='starship')
+router.register(r'listings', ListingViewSet, basename='listing')
 
 schema_view = get_swagger_view(title='Starship API')
 

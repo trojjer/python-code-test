@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Starship
+from .models import Starship, Listing
 
 
 class StarshipSerializer(serializers.ModelSerializer):
@@ -41,3 +41,9 @@ class StarshipSerializer(serializers.ModelSerializer):
             manufacturer=validated_data['manufacturer']
         ).exists():
             return super().create(validated_data)
+
+
+class ListingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Listing
+        fields = '__all__'
