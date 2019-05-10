@@ -1,3 +1,11 @@
-from django.shortcuts import render
+from rest_framework import viewsets
 
-# Create your views here.
+from shiptrader.models import Starship
+from shiptrader.serializers import StarshipSerializer
+
+
+class StarshipViewSet(viewsets.ReadOnlyModelViewSet):
+    """Viewset for browsing Starships.
+    """
+    serializer_class = StarshipSerializer
+    queryset = Starship.objects.all()
