@@ -26,3 +26,6 @@ class ListingFactory(factory.django.DjangoModelFactory):
     """
     class Meta:
         model = 'shiptrader.Listing'
+
+    name = factory.Sequence(lambda n: f'Listing {n}')
+    price = 10000

@@ -14,6 +14,9 @@ class Starship(models.Model):
     crew = models.IntegerField()
     passengers = models.IntegerField()
 
+    def __str__(self):
+        return f'{self.name} made by {self.manufacturer}'
+
 
 class Listing(models.Model):
     modified = models.DateTimeField(auto_now=True)
@@ -21,3 +24,7 @@ class Listing(models.Model):
     ship_type = models.ForeignKey(Starship, related_name='listings')
     price = models.IntegerField()
     is_active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return f'{self.name} for {self.ship_type} at price {self.price}'
+

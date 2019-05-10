@@ -17,3 +17,8 @@ def api_client(db):
     :return: Instance of APIClient.
     """
     return APIClient()
+
+@pytest.fixture
+def test_data(starship_factory, listing_factory):
+    ships = starship_factory.create_batch(size=5)
+    listings = [listing_factory(ship_type=ship) for ship in ships]
