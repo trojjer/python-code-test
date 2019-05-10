@@ -28,3 +28,4 @@ class ListingViewSet(
     """
     serializer_class = ListingSerializer
     queryset = Listing.objects.all()
+    filterset_fields = ['ship_type__starship_class', ]
