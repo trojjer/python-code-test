@@ -16,6 +16,8 @@ class Starship(models.Model):
 
 
 class Listing(models.Model):
+    modified = models.DateTimeField(auto_now=True)
     name = models.CharField(max_length=255)
     ship_type = models.ForeignKey(Starship, related_name='listings')
     price = models.IntegerField()
+    is_active = models.BooleanField(default=True)
