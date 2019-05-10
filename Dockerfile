@@ -7,3 +7,5 @@ RUN if [[ ! -e /usr/bin/python ]]; then ln -sf /usr/bin/python3 /usr/bin/python;
 WORKDIR /srv/python-code-test
 ADD requirements.in /srv/python-code-test/
 RUN pip3 install -r requirements.in
+ADD test_requirements.txt /srv/python-code-test/
+RUN pip3 install -r test_requirements.txt
