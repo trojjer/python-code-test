@@ -1,6 +1,12 @@
 import pytest
-
+from pytest_factoryboy import register
 from rest_framework.test import APIClient
+
+from .tests.factories import StarshipFactory, ListingFactory
+
+
+register(StarshipFactory)
+register(ListingFactory)
 
 
 @pytest.fixture
