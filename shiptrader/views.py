@@ -1,4 +1,6 @@
 from rest_framework import viewsets, mixins
+from rest_framework.filters import OrderingFilter
+from django_filters.rest_framework import DjangoFilterBackend
 
 from shiptrader.models import Starship, Listing
 from shiptrader.serializers import StarshipSerializer, ListingSerializer
@@ -28,4 +30,6 @@ class ListingViewSet(
     """
     serializer_class = ListingSerializer
     queryset = Listing.objects.all()
-    filterset_fields = ['ship_type__starship_class', ]
+    filter_backends = (DjangoFilterBackend, OrderingFilter, )
+    filterset_fields = ('ship_type__starship_class', )
+    ordering_fields = ('price', 'modified', )

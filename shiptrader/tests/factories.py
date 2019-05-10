@@ -29,3 +29,4 @@ class ListingFactory(factory.django.DjangoModelFactory):
 
     name = factory.Sequence(lambda n: f'Listing {n}')
     price = 10000
+    ship_type = factory.SubFactory(StarshipFactory)

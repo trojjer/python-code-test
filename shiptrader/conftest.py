@@ -18,6 +18,7 @@ def api_client(db):
     """
     return APIClient()
 
+
 @pytest.fixture
 def test_data(starship_factory, listing_factory):
     ships = starship_factory.create_batch(size=5)
