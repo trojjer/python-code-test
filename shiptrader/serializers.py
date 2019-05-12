@@ -46,7 +46,7 @@ class StarshipSerializer(serializers.ModelSerializer):
 class ListingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Listing
-        exclude = ('id', 'ship_type')
+        exclude = ('id', 'ship_type', 'name')
 
     starship_name = serializers.CharField()
 
