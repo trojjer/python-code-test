@@ -1,5 +1,7 @@
 from django.urls import reverse
 
+from shiptrader.models import Starship
+
 
 def test_get_starships(api_client, test_data):
     response = api_client.get(reverse('starship-list'))
@@ -67,3 +69,17 @@ def test_get_listings_ordered_by_modified_descending(api_client, test_data, list
     assert len(listings) == 6
     assert listings[0]['name'] == listing.name
 
+
+def test_create_listing(api_client, test_data):
+    ship = Starship.objects.first()
+    response = api_client.post(
+        reverse('listing-list'),
+        {
+            'starship_name': ship.name,
+            'price': '666',
+        },
+        format='json'
+    )
+
+    assert response.status_code == 201
+    assert response.data['ship_type'] == ship.id

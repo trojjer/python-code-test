@@ -24,8 +24,8 @@ class ListingViewSet(
        - Browse all Listings.
        - Retrieve a Listing by ID.
        - Creation of new Listing.
-    TODO:
        - Filtering of Listings by starship_class param.
+       - Ordering on the `price` and `modified` fields.
        - Activate/deactivate specific listing by ID.
     """
     serializer_class = ListingSerializer
