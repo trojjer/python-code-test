@@ -26,10 +26,10 @@ class ListingViewSet(
        - Creation of new Listing.
        - Filtering of Listings by starship_class param.
        - Ordering on the `price` and `modified` fields.
-       - Activate/deactivate specific listing by ID.
+       - Partial update of specific Listing by PUT request with ID.
     """
     serializer_class = ListingSerializer
-    queryset = Listing.objects.all()
+    queryset = Listing.objects.filter(is_active=True)
     filter_backends = (DjangoFilterBackend, OrderingFilter, )
     filterset_fields = ('ship_type__starship_class', )
     ordering_fields = ('price', 'modified', )

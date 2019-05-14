@@ -1,16 +1,18 @@
 from django.urls import reverse
 
-from shiptrader.models import Starship
+from shiptrader.models import Starship, Listing
 
 
 def test_get_starships(api_client, test_data):
     response = api_client.get(reverse('starship-list'))
 
     assert response.status_code == 200
-    assert len(response.data) == 5
+    assert len(response.data) == 6
 
 
 def test_get_listings(api_client, test_data):
+    """All active Listings should be shown.
+    """
     response = api_client.get(reverse('listing-list'))
 
     assert response.status_code == 200

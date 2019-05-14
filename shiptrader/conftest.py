@@ -22,4 +22,5 @@ def api_client(db):
 @pytest.fixture
 def test_data(starship_factory, listing_factory):
     ships = starship_factory.create_batch(size=5)
-    listings = [listing_factory(ship_type=ship) for ship in ships]
+    active_listings = [listing_factory.create(ship_type=ship) for ship in ships]
+    listing_factory.create(is_active=False)
