@@ -26,5 +26,5 @@ class Listing(models.Model):
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
-        return f'{self.name} for {self.ship_type} at price {self.price}'
+        return f'Listing for {self.ship_type} at price {self.price}'
 

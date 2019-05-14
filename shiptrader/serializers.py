@@ -46,12 +46,17 @@ class StarshipSerializer(serializers.ModelSerializer):
 class ListingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Listing
-        exclude = ('id', 'ship_type', 'name')
+        fields = ('name', 'ship_name', 'ship_type', 'price', 'is_active', )
+        read_only_fields = ('ship_type', )
 
-    starship_name = serializers.CharField()
+    ship_name = serializers.CharField(write_only=True)
 
     def create(self, validated_data):
-        ship_name = validated_data.pop('starship_name')
+        """
+        Create a Listing if data is valid.
+        ship_name is not a Listing field, but is used for Starship query.
+        """
+        ship_name = validated_data.pop('ship_name')
         ship = Starship.objects.get(name=ship_name)
-        validated_data['ship_type'] = ship.id
+        validated_data['ship_type'] = ship
         return super().create(validated_data)

@@ -75,11 +75,14 @@ def test_create_listing(api_client, test_data):
     response = api_client.post(
         reverse('listing-list'),
         {
-            'starship_name': ship.name,
-            'price': '666',
+            'name': 'New listing',
+            'ship_name': ship.name,
+            'price': 666,
         },
         format='json'
     )
 
     assert response.status_code == 201
+    assert response.data['name'] == 'New listing'
     assert response.data['ship_type'] == ship.id
+    assert response.data['price'] == 666
