@@ -23,7 +23,7 @@ API](https://swapi.co/documentation#starships).
 
 * `/swagger-docs` to browse with Swagger-UI.
 * `/api/v1/starship` to browse Starships (GET).
-* `/api/v1/listing` to browse, create and edit Listings for Starship sales (GET, POST, PUT).
+* `/api/v1/listing` to browse, create and edit Listings for Starship sales (GET, POST, PATCH).
 
 ## Functionality
 
