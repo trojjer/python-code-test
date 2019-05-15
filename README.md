@@ -28,8 +28,7 @@ API](https://swapi.co/documentation#starships).
 ## Functionality
 
 * A potential buyer can browse all Starships
-* A potential buyer can browse all the listings for a given `starship_class`
+* A potential buyer can browse all the listings for a given `starship_class` (provided `is_active is True`).
 * A potential buyer can sort listings by price or time of listing
-* To list a Starship as for sale, the user should supply the Starship name and
-  list price
-* A seller can deactivate and reactivate their listing
+* To list a Starship as for sale, the user should supply the listing name, Starship name and list price.
+* A seller can deactivate and reactivate their listing (PATCH request with listing ID and a value for `is_active` field).
