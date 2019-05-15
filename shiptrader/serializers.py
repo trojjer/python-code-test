@@ -46,7 +46,7 @@ class StarshipSerializer(serializers.ModelSerializer):
 class ListingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Listing
-        fields = ('name', 'ship_name', 'ship_type', 'price', 'is_active', )
+        fields = ('id', 'name', 'ship_name', 'ship_type', 'price', 'is_active', )
         read_only_fields = ('ship_type', )
 
     ship_name = serializers.CharField(write_only=True)

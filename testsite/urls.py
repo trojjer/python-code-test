@@ -10,8 +10,8 @@ from shiptrader.views import StarshipViewSet, ListingViewSet
 
 
 router = DefaultRouter()
-router.register(r'starships', StarshipViewSet, basename='starship')
-router.register(r'listings', ListingViewSet, basename='listing')
+router.register(r'starship', StarshipViewSet, basename='starship')
+router.register(r'listing', ListingViewSet, basename='listing')
 
 schema_view = get_swagger_view(title='Starship API')
 

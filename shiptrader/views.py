@@ -17,6 +17,7 @@ class ListingViewSet(
     mixins.CreateModelMixin,
     mixins.ListModelMixin,
     mixins.RetrieveModelMixin,
+    mixins.UpdateModelMixin,
     viewsets.GenericViewSet):
     """
     Viewset for Listings.
@@ -29,7 +30,18 @@ class ListingViewSet(
        - Partial update of specific Listing by PUT request with ID.
     """
     serializer_class = ListingSerializer
-    queryset = Listing.objects.filter(is_active=True)
+    queryset = Listing.objects.all()
     filter_backends = (DjangoFilterBackend, OrderingFilter, )
     filterset_fields = ('ship_type__starship_class', )
     ordering_fields = ('price', 'modified', )
+
+    def get_queryset(self):
+        """
+        Filter queryset by is_active field on list action, but not others.
+        Allows PATCH request to retrieve a Listing where is_active is False.
+        :return: Queryset.
+        """
+        queryset = super().get_queryset()
+        if self.action == 'list':
+            queryset = queryset.filter(is_active=True)
+        return queryset
