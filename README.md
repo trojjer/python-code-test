@@ -16,7 +16,7 @@ API](https://swapi.co/documentation#starships).
 # To load data into DB from external SWAPI resource:
 > ./manapy load_ships
 # Running tests:
-> pytest
+> docker-compose run --rm code-test pytest
 ```
 
 ## Endpoints
